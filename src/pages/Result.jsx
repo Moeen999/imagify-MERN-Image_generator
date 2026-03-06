@@ -1,9 +1,12 @@
-import React from 'react'
+import { assets } from "../assets/assets"
 
 const Result = () => {
   return (
     <div>
-      Results
+      <div className="relative">
+        <img src={assets.sample_img_1} alt="" className="max-w-sm rounded"/>
+        <span className="absolute bottom-0" />
+      </div>
     </div>
   )
 }
