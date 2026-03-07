@@ -1,13 +1,20 @@
 import { useState } from "react";
 import { assets } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
+import { motion } from "motion/react";
 
 const Login = () => {
-  const [isSignup, setIsSignup] = useState(true);
+  const [isSignup, setIsSignup] = useState(false);
   const navigate = useNavigate();
   return (
     <div className="absolute top-0 left-0 right-0 bottom-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center">
-      <form className="relative bg-white p-10 rounded-xl text-slate-500">
+      <motion.form
+        initial={{ opacity: 0.2, y: 100 }}
+        transition={{ duration: 1 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="relative bg-white p-10 rounded-xl text-slate-500"
+      >
         <h1 className="text-center text-2xl text-neutral-700 font-medium">
           {isSignup ? "Sign Up" : "Sign In"}
         </h1>
@@ -86,9 +93,9 @@ const Login = () => {
           src={assets.cross_icon}
           alt=""
           className="absolute top-5 right-5 cursor-pointer"
-          onClick={()=>navigate(-1)}
+          onClick={() => navigate(-1)}
         />
-      </form>
+      </motion.form>
     </div>
   );
 };
