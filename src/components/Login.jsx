@@ -30,7 +30,7 @@ const Login = () => {
         if (data.success) {
           navigate("/");
           setUser(true);
-          setToken(data.token);
+          setToken(localStorage.setItem("token", data.token));
           toast.success("Account created succesfully!");
         }
       } else {
@@ -41,7 +41,7 @@ const Login = () => {
         if (data.success) {
           navigate("/");
           setUser(true);
-          setToken(data.token);
+          setToken(localStorage.setItem("token", data.token));
           toast.success("User logged In succesfully");
         }
       }

@@ -6,6 +6,12 @@ import { AppContext } from "../context/AppContext";
 const Navbar = () => {
   const navigate = useNavigate();
   const { user, setUser } = useContext(AppContext);
+  const handleLogout=()=>{
+    localStorage.clear();
+    setUser(null);
+    navigate("/")
+  }
+
   return (
     <div className="flex justify-between items-center py-4">
       <Link to="/">
@@ -34,7 +40,7 @@ const Navbar = () => {
                 <ul className="list-none m-0 p-2 bg-white rounded-md border text-sm">
                   <li
                     className="py-1 px-2 pr-10 cursor-pointer"
-                    onClick={() => setUser(null)}
+                    onClick={handleLogout}
                   >
                     Logout
                   </li>
